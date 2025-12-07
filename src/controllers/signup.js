@@ -4,9 +4,10 @@ async function createUser(req, res) {
     try {
         const userData = req.body;
         const user = await userService.createUser(userData);
-        res.status(201).json({ message: 'User created successfully', user: user });
+        res.status(201).json({ message: 'User registered successfully', user: user });
     } catch (error) {
-        res.status(400).json({ message: 'Error creating user', error: error.message });
+        console.log(error);
+        res.status(500).json({ message: 'Error registering user', error: error.message });
     }
 }
 
